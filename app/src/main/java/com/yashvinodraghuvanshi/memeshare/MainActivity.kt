@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadMeme()
     {
         binding.progressBar.visibility = View.VISIBLE
-        val queue = Volley.newRequestQueue(this)
+
         val url = "https://meme-api.com/gimme"
 
         // Request a string response from the provided URL.
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             })
 
         // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest)
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
     }
 
     fun shareMeme(view: View) {
